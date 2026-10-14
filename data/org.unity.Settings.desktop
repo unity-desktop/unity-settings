@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Settings
+Comment=Change the settings of the Unity desktop
+Exec=unity-settings
+Icon=org.unity.Settings
+Terminal=false
+Type=Application
+Categories=GTK;Settings;DesktopSettings;
+Keywords=Preferences;Configuration;
+StartupNotify=true
+OnlyShowIn=Unity;
