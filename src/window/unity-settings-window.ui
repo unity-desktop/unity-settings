@@ -28,6 +28,17 @@
                 <property name="content">
                   <object class="AdwSidebar" id="sidebar">
                     <signal name="activated" handler="sidebar_activated_cb" swapped="yes"/>
+                    <child>
+                      <object class="AdwSidebarSection">
+                        <child>
+                          <object class="UnitySettingsSidebarItem">
+                            <property name="title" translatable="yes">Appearance</property>
+                            <property name="icon-name">org.unity.Settings-appearance-symbolic</property>
+                            <property name="page-type">UnitySettingsAppearancePage</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </property>
               </object>

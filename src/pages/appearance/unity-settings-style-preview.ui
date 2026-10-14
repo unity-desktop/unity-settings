@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="UnitySettingsStylePreview" parent="AdwBin">
+    <property name="child">
+      <object class="GtkOverlay">
+        <property name="overflow">hidden</property>
+        <style>
+          <class name="card"/>
+        </style>
+        <property name="child">
+          <object class="GtkPicture" id="picture">
+            <property name="content-fit">cover</property>
+            <property name="can-shrink">False</property>
+          </object>
+        </property>
+        <child type="overlay">
+          <object class="GtkPicture">
+            <property name="content-fit">fill</property>
+            <property name="paintable">
+              <object class="GtkSvg" id="windows">
+                <property name="resource">/org/unity/Settings/style-preview.svg</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+</interface>

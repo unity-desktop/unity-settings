@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="UnitySettingsAppearancePage" parent="AdwBin">
+    <property name="child">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar"/>
+        </child>
+        <property name="content">
+          <object class="AdwToastOverlay" id="toast_overlay">
+            <property name="child">
+              <object class="AdwPreferencesPage">
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="UnitySettingsStylePreview" id="preview">
+                        <property name="halign">center</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <child>
+                      <object class="AdwComboRow" id="style_row">
+                        <property name="title" translatable="yes">_Style</property>
+                        <property name="use-underline">True</property>
+                        <property name="model">
+                          <object class="GtkStringList">
+                            <items>
+                              <item translatable="yes">Default</item>
+                              <item translatable="yes">Dark</item>
+                              <item translatable="yes">Light</item>
+                            </items>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwExpanderRow">
+                        <property name="title" translatable="yes">Color</property>
+                        <child type="suffix">
+                          <object class="GtkLabel" id="accent_label">
+                            <property name="valign">center</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwPreferencesRow">
+                            <property name="accessible-role">group</property>
+                            <property name="activatable">False</property>
+                            <property name="focusable">False</property>
+                            <property name="child">
+                              <object class="AdwWrapBox">
+                                <property name="align">0.5</property>
+                                <property name="child-spacing">12</property>
+                                <property name="line-spacing">12</property>
+                                <property name="margin-top">12</property>
+                                <property name="margin-bottom">12</property>
+                                <property name="margin-start">12</property>
+                                <property name="margin-end">12</property>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'blue'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Blue</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="blue"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'teal'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Teal</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="teal"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'green'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Green</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="green"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'yellow'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Yellow</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="yellow"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'orange'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Orange</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="orange"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'red'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Red</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="red"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'pink'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Pink</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="pink"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'purple'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Purple</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="purple"/>
+                                    </style>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton">
+                                    <property name="action-name">appearance.accent-color</property>
+                                    <property name="action-target">'slate'</property>
+                                    <accessibility>
+                                      <property name="label" translatable="yes">Slate</property>
+                                    </accessibility>
+                                    <style>
+                                      <class name="selection-mode"/>
+                                      <class name="accent-swatch"/>
+                                      <class name="slate"/>
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwSwitchRow" id="translucency_row">
+                        <property name="title" translatable="yes">_Translucency</property>
+                        <property name="use-underline">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwPreferencesGroup">
+                    <property name="title" translatable="yes">Background</property>
+                    <property name="header-suffix">
+                      <object class="GtkButton">
+                        <property name="child">
+                          <object class="AdwButtonContent">
+                            <property name="icon-name">list-add-symbolic</property>
+                            <property name="label" translatable="yes">_Add Picture…</property>
+                            <property name="use-underline">True</property>
+                          </object>
+                        </property>
+                        <signal name="clicked" handler="add_picture_cb" swapped="yes"/>
+                        <style>
+                          <class name="flat"/>
+                        </style>
+                      </object>
+                    </property>
+                    <child>
+                      <object class="AdwBin">
+                        <property name="accessible-role">group</property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Background</property>
+                        </accessibility>
+                        <style>
+                          <class name="card"/>
+                        </style>
+                        <property name="child">
+                          <object class="CcBackgroundChooser" id="chooser">
+                            <property name="hexpand">True</property>
+                            <property name="toast-overlay">toast_overlay</property>
+                            <signal name="background-chosen" handler="background_chosen_cb" swapped="yes"/>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

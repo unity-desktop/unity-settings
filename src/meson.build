@@ -6,9 +6,10 @@ unity_settings_deps = [
 
 unity_settings_sources = files('main.c')
 
-unity_settings_includes = include_directories('.', 'window')
+unity_settings_includes = include_directories('.', 'window', 'pages/appearance')
 
 subdir('window')
+subdir('pages')
 
 unity_settings_sources += gnome.compile_resources(
   'unity-settings-resources',
