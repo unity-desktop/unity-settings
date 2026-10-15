@@ -39,6 +39,17 @@
                         </child>
                       </object>
                     </child>
+                    <child>
+                      <object class="AdwSidebarSection">
+                        <child>
+                          <object class="UnitySettingsSidebarItem">
+                            <property name="title" translatable="yes">Mouse &amp; Touchpad</property>
+                            <property name="icon-name">input-mouse-symbolic</property>
+                            <property name="page-type">UnitySettingsMouseTouchpadPage</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </property>
               </object>
