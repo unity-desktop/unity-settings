@@ -1,0 +1,9 @@
+illustration {
+  color: var(--view-bg-color);
+  border-color: color-mix(in srgb, var(--window-fg-color) var(--border-opacity), transparent);
+  -gtk-icon-palette: accent var(--accent-bg-color);
+}
+
+illustration:disabled {
+  opacity: 0.5;
+}
