@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="UnitySettingsTouchpadPage" parent="AdwBin">
+    <property name="child">
+      <object class="AdwBreakpointBin">
+        <property name="width-request">300</property>
+        <property name="height-request">200</property>
+        <child>
+          <object class="AdwBreakpoint">
+            <condition>max-width: 500sp</condition>
+            <setter object="click_method_box" property="orientation">vertical</setter>
+            <setter object="scroll_method_box" property="orientation">vertical</setter>
+            <setter object="touchpad_scroll_direction_box" property="orientation">vertical</setter>
+            <setter object="tap_and_drag_box" property="orientation">vertical</setter>
+            <setter object="finger_drag_box" property="orientation">vertical</setter>
+          </object>
+        </child>
+        <property name="child">
+          <object class="AdwPreferencesPage">
+            <child>
+              <object class="AdwPreferencesGroup">
+                <property name="title" translatable="yes">General</property>
+                <child>
+                  <object class="AdwSwitchRow" id="touchpad_typing_row">
+                    <property name="title" translatable="yes">_Disable While Typing</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSwitchRow" id="touchpad_external_mouse_row">
+                    <property name="title" translatable="yes">Disable While a _Mouse Is Connected</property>
+                    <property name="use-underline">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwActionRow">
+                    <property name="title" translatable="yes">Po_inter Speed</property>
+                    <property name="use-underline">True</property>
+                    <property name="activatable-widget">touchpad_speed_scale</property>
+                    <child type="suffix">
+                      <object class="GtkScale" id="touchpad_speed_scale">
+                        <property name="hexpand">True</property>
+                        <marks>
+                          <mark value="-1" position="bottom" translatable="yes">Slow</mark>
+                          <mark value="0"/>
+                          <mark value="1" position="bottom" translatable="yes">Fast</mark>
+                        </marks>
+                        <property name="adjustment">
+                          <object class="GtkAdjustment">
+                            <property name="lower">-1</property>
+                            <property name="upper">1</property>
+                            <property name="step-increment">0.1</property>
+                            <property name="page-increment">0.1</property>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="AdwPreferencesGroup">
+                <child>
+                  <object class="AdwInlineViewSwitcher">
+                    <property name="halign">center</property>
+                    <property name="homogeneous">True</property>
+                    <property name="display-mode">labels</property>
+                    <property name="stack">touchpad_stack</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwViewStack" id="touchpad_stack">
+                    <property name="vhomogeneous">False</property>
+                    <property name="enable-transitions">True</property>
+                    <property name="margin-top">12</property>
+                    <child>
+                      <object class="AdwViewStackPage">
+                        <property name="name">clicking</property>
+                        <property name="title" translatable="yes">_Clicking</property>
+                        <property name="use-underline">True</property>
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">24</property>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="yes">Secondary Click</property>
+                                <property name="header-suffix">
+                                  <object class="GtkSwitch" id="click_method_switch">
+                                    <property name="valign">center</property>
+                                  </object>
+                                </property>
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="sensitive" bind-source="click_method_switch" bind-property="active" bind-flags="sync-create"/>
+                                    <property name="child">
+                                      <object class="GtkBox" id="click_method_box">
+                                        <property name="accessible-role">radio-group</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="spacing">12</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">12</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="click_method_default_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/push-areas.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">click_method_default</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="click_method_default">
+                                                <property name="label" translatable="yes">_Default</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.click-method</property>
+                                                <property name="action-target">'default'</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="click_method_clickfinger_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/two-finger-push.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">click_method_clickfinger</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="click_method_clickfinger">
+                                                <property name="label" translatable="yes">Two _Finger Push</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.click-method</property>
+                                                <property name="action-target">'clickfinger'</property>
+                                                <property name="group">click_method_default</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="click_method_button_areas_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/push-areas.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">click_method_button_areas</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="click_method_button_areas">
+                                                <property name="label" translatable="yes">_Corner Push</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.click-method</property>
+                                                <property name="action-target">'button-areas'</property>
+                                                <property name="group">click_method_default</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="action-name">touchpad.tap-to-click</property>
+                                    <accessibility>
+                                      <relation name="labelled-by">tap_to_click_title</relation>
+                                    </accessibility>
+                                    <property name="child">
+                                      <object class="GtkBox">
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="spacing">12</property>
+                                            <property name="margin-top">12</property>
+                                            <property name="margin-start">12</property>
+                                            <property name="margin-end">12</property>
+                                            <child>
+                                              <object class="GtkLabel" id="tap_to_click_title">
+                                                <property name="label" translatable="yes">T_ap to Click</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="mnemonic-widget">tap_to_click_switch</property>
+                                                <property name="hexpand">True</property>
+                                                <property name="xalign">0</property>
+                                                <property name="wrap">True</property>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkSwitch" id="tap_to_click_switch">
+                                                <property name="valign">center</property>
+                                                <property name="action-name">touchpad.tap-to-click</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="UnitySettingsIllustration" id="tap_to_click_image">
+                                            <property name="resource">/org/unity/Settings/mouse-touchpad/tap-to-click.svg</property>
+                                            <property name="height-request">196</property>
+                                            <property name="margin-top">12</property>
+                                            <property name="margin-bottom">12</property>
+                                            <property name="margin-start">12</property>
+                                            <property name="margin-end">12</property>
+                                            <style>
+                                              <class name="frame"/>
+                                              <class name="view"/>
+                                            </style>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwViewStackPage">
+                        <property name="name">scrolling</property>
+                        <property name="title" translatable="yes">_Scrolling</property>
+                        <property name="use-underline">True</property>
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">24</property>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="yes">Scroll Method</property>
+                                <property name="header-suffix">
+                                  <object class="GtkSwitch" id="scroll_method_switch">
+                                    <property name="valign">center</property>
+                                  </object>
+                                </property>
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="sensitive" bind-source="scroll_method_switch" bind-property="active" bind-flags="sync-create"/>
+                                    <property name="child">
+                                      <object class="GtkBox" id="scroll_method_box">
+                                        <property name="accessible-role">radio-group</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="spacing">12</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">12</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="scroll_method_default_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/two-finger-scroll.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">scroll_method_default</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="scroll_method_default">
+                                                <property name="label" translatable="yes">_Default</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.scroll-method</property>
+                                                <property name="action-target">'default'</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="scroll_method_two_finger_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/two-finger-scroll.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">scroll_method_two_finger</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="scroll_method_two_finger">
+                                                <property name="label" translatable="yes">T_wo Finger</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.scroll-method</property>
+                                                <property name="action-target">'two-finger'</property>
+                                                <property name="group">scroll_method_default</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="scroll_method_edge_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/edge-scroll.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">scroll_method_edge</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="scroll_method_edge">
+                                                <property name="label" translatable="yes">_Edge</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.scroll-method</property>
+                                                <property name="action-target">'edge'</property>
+                                                <property name="group">scroll_method_default</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="yes">Scroll Direction</property>
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="child">
+                                      <object class="GtkBox" id="touchpad_scroll_direction_box">
+                                        <property name="accessible-role">radio-group</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="spacing">12</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">12</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="touchpad_scroll_traditional_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/touch-scroll-traditional.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">touchpad_scroll_traditional</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="touchpad_scroll_traditional">
+                                                <property name="label" translatable="yes">Tra_ditional</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="touchpad_scroll_natural_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/touch-scroll-natural.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">touchpad_scroll_natural</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="touchpad_scroll_natural">
+                                                <property name="label" translatable="yes">_Natural</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="group">touchpad_scroll_traditional</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwViewStackPage">
+                        <property name="name">dragging</property>
+                        <property name="title" translatable="yes">_Dragging</property>
+                        <property name="use-underline">True</property>
+                        <property name="child">
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">24</property>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="yes">Tap to Drag</property>
+                                <property name="header-suffix">
+                                  <object class="GtkSwitch" id="tap_and_drag_switch">
+                                    <property name="valign">center</property>
+                                  </object>
+                                </property>
+                                <property name="sensitive" bind-source="tap_to_click_switch" bind-property="active" bind-flags="sync-create"/>
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="sensitive" bind-source="tap_and_drag_switch" bind-property="active" bind-flags="sync-create"/>
+                                    <property name="child">
+                                      <object class="GtkBox" id="tap_and_drag_box">
+                                        <property name="accessible-role">radio-group</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="spacing">12</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">12</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="drag_lock_off_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/tap-then-slide.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">drag_lock_off</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="drag_lock_off">
+                                                <property name="label" translatable="yes">Tap Then _Slide</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="drag_lock_on_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/tap-then-hold.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">drag_lock_on</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="drag_lock_on">
+                                                <property name="label" translatable="yes">Tap Then _Hold</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="group">drag_lock_off</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="AdwPreferencesGroup">
+                                <property name="title" translatable="yes">Multi-Finger Drag</property>
+                                <property name="header-suffix">
+                                  <object class="GtkSwitch" id="finger_drag_switch">
+                                    <property name="valign">center</property>
+                                  </object>
+                                </property>
+                                <child>
+                                  <object class="AdwPreferencesRow">
+                                    <property name="activatable">False</property>
+                                    <property name="sensitive" bind-source="finger_drag_switch" bind-property="active" bind-flags="sync-create"/>
+                                    <property name="child">
+                                      <object class="GtkBox" id="finger_drag_box">
+                                        <property name="accessible-role">radio-group</property>
+                                        <property name="homogeneous">True</property>
+                                        <property name="spacing">12</property>
+                                        <property name="margin-top">12</property>
+                                        <property name="margin-bottom">12</property>
+                                        <property name="margin-start">12</property>
+                                        <property name="margin-end">12</property>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="finger_drag_three_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/three-finger-drag.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">finger_drag_three</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="finger_drag_three">
+                                                <property name="label" translatable="yes">_Three Fingers</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.x-3fg-drag</property>
+                                                <property name="action-target">'3fg-drag'</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                        <child>
+                                          <object class="GtkBox">
+                                            <property name="orientation">vertical</property>
+                                            <child>
+                                              <object class="UnitySettingsIllustration" id="finger_drag_four_image">
+                                                <property name="resource">/org/unity/Settings/mouse-touchpad/four-finger-drag.svg</property>
+                                                <property name="height-request">196</property>
+                                                <property name="check-button">finger_drag_four</property>
+                                                <style>
+                                                  <class name="frame"/>
+                                                  <class name="view"/>
+                                                </style>
+                                              </object>
+                                            </child>
+                                            <child>
+                                              <object class="GtkCheckButton" id="finger_drag_four">
+                                                <property name="label" translatable="yes">_Four Fingers</property>
+                                                <property name="use-underline">True</property>
+                                                <property name="margin-top">6</property>
+                                                <property name="action-name">touchpad.x-3fg-drag</property>
+                                                <property name="action-target">'4fg-drag'</property>
+                                                <property name="group">finger_drag_three</property>
+                                              </object>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                        </property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>
