@@ -23,6 +23,9 @@
                 <property name="resource">/org/unity/Settings/style-preview.svg</property>
               </object>
             </property>
+            <style>
+              <class name="style-preview-windows"/>
+            </style>
           </object>
         </child>
       </object>

@@ -148,7 +148,7 @@
                                 <property name="check-button">mouse_scroll_traditional</property>
                                 <style>
                                   <class name="frame"/>
-                                  <class name="view"/>
+                                  <class name="background"/>
                                 </style>
                               </object>
                             </child>
@@ -171,7 +171,7 @@
                                 <property name="check-button">mouse_scroll_natural</property>
                                 <style>
                                   <class name="frame"/>
-                                  <class name="view"/>
+                                  <class name="background"/>
                                 </style>
                               </object>
                             </child>
