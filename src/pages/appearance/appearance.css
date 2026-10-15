@@ -1,3 +1,7 @@
+picture.style-preview-windows {
+  -gtk-icon-palette: accent var(--accent-bg-color);
+}
+
 checkbutton.accent-swatch > radio {
   box-shadow: none;
 }
