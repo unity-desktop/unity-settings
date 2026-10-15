@@ -6,7 +6,7 @@ unity_settings_deps = [
 
 unity_settings_sources = files('main.c')
 
-unity_settings_includes = include_directories('.', 'window', 'pages/appearance')
+unity_settings_includes = include_directories('.', 'window', 'pages/appearance', 'pages/mouse-touchpad')
 
 subdir('window')
 subdir('pages')

@@ -8,6 +8,24 @@
     <file preprocess="xml-stripblanks" alias="unity-settings-window.ui">window/unity-settings-window.ui</file>
     <file preprocess="xml-stripblanks" alias="unity-settings-appearance-page.ui">pages/appearance/unity-settings-appearance-page.ui</file>
     <file preprocess="xml-stripblanks" alias="unity-settings-style-preview.ui">pages/appearance/unity-settings-style-preview.ui</file>
+    <file alias="mouse-touchpad.css">pages/mouse-touchpad/mouse-touchpad.css</file>
+    <file preprocess="xml-stripblanks" alias="unity-settings-mouse-touchpad-page.ui">pages/mouse-touchpad/unity-settings-mouse-touchpad-page.ui</file>
+    <file preprocess="xml-stripblanks" alias="unity-settings-mouse-page.ui">pages/mouse-touchpad/unity-settings-mouse-page.ui</file>
+    <file preprocess="xml-stripblanks" alias="unity-settings-touchpad-page.ui">pages/mouse-touchpad/unity-settings-touchpad-page.ui</file>
+    <file preprocess="xml-stripblanks" alias="unity-settings-illustration.ui">pages/mouse-touchpad/unity-settings-illustration.ui</file>
+    <file alias="mouse-touchpad/scroll-traditional.svg">pages/mouse-touchpad/assets/scroll-traditional.svg</file>
+    <file alias="mouse-touchpad/scroll-natural.svg">pages/mouse-touchpad/assets/scroll-natural.svg</file>
+    <file alias="mouse-touchpad/two-finger-push.svg">pages/mouse-touchpad/assets/two-finger-push.svg</file>
+    <file alias="mouse-touchpad/push-areas.svg">pages/mouse-touchpad/assets/push-areas.svg</file>
+    <file alias="mouse-touchpad/tap-to-click.svg">pages/mouse-touchpad/assets/tap-to-click.svg</file>
+    <file alias="mouse-touchpad/two-finger-scroll.svg">pages/mouse-touchpad/assets/two-finger-scroll.svg</file>
+    <file alias="mouse-touchpad/edge-scroll.svg">pages/mouse-touchpad/assets/edge-scroll.svg</file>
+    <file alias="mouse-touchpad/touch-scroll-traditional.svg">pages/mouse-touchpad/assets/touch-scroll-traditional.svg</file>
+    <file alias="mouse-touchpad/touch-scroll-natural.svg">pages/mouse-touchpad/assets/touch-scroll-natural.svg</file>
+    <file alias="mouse-touchpad/tap-then-slide.svg">pages/mouse-touchpad/assets/tap-then-slide.svg</file>
+    <file alias="mouse-touchpad/tap-then-hold.svg">pages/mouse-touchpad/assets/tap-then-hold.svg</file>
+    <file alias="mouse-touchpad/three-finger-drag.svg">pages/mouse-touchpad/assets/three-finger-drag.svg</file>
+    <file alias="mouse-touchpad/four-finger-drag.svg">pages/mouse-touchpad/assets/four-finger-drag.svg</file>
   </gresource>
   <gresource prefix="/org/gnome/control-center/background">
     <file preprocess="xml-stripblanks" alias="cc-background-chooser.ui">pages/appearance/background/cc-background-chooser.ui</file>

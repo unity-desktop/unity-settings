@@ -8,6 +8,7 @@
 #include "unity-settings-window.h"
 
 #include "unity-settings-appearance-page.h"
+#include "unity-settings-mouse-touchpad-page.h"
 #include "unity-settings-sidebar-item.h"
 
 struct _UnitySettingsWindow
@@ -54,6 +55,7 @@ unity_settings_window_class_init (UnitySettingsWindowClass *klass)
 
   g_type_ensure (UNITY_SETTINGS_TYPE_SIDEBAR_ITEM);
   g_type_ensure (UNITY_SETTINGS_TYPE_APPEARANCE_PAGE);
+  g_type_ensure (UNITY_SETTINGS_TYPE_MOUSE_TOUCHPAD_PAGE);
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/unity/Settings/unity-settings-window.ui");
   gtk_widget_class_bind_template_child (widget_class, UnitySettingsWindow, split_view);
